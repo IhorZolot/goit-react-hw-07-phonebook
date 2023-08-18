@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { nanoid } from 'nanoid';
-
 import {
-  InputForm,
-  InputName,
-  InputNamber,
-  Button,
-} from './PhonebookContact.styled';
+  ButtonStyled,
+  InputEnterStyled,
+  InputFormStyled,
+  InputStyled,
+} from './contactForm.styled';
 
 export const ContactForm = ({ checkDuplicateContact, onSubmit }) => {
   const [name, setName] = useState('');
@@ -34,10 +34,10 @@ export const ContactForm = ({ checkDuplicateContact, onSubmit }) => {
   };
 
   return (
-    <InputForm onSubmit={handleSubmit}>
-      <InputName>
+    <InputFormStyled onSubmit={handleSubmit}>
+      <InputStyled>
         <label>Name:</label>
-        <input
+        <InputEnterStyled
           type="text"
           id="name"
           name="name"
@@ -48,10 +48,10 @@ export const ContactForm = ({ checkDuplicateContact, onSubmit }) => {
           title="Name may contain only letters, apostrophe, dash and spaces."
           required
         />
-      </InputName>
-      <InputNamber>
+      </InputStyled>
+      <InputStyled>
         <label>Number:</label>
-        <input
+        <InputEnterStyled
           type="tel"
           id="number"
           name="number"
@@ -62,8 +62,13 @@ export const ContactForm = ({ checkDuplicateContact, onSubmit }) => {
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
           required
         />
-      </InputNamber>
-      <Button type="submit">Add Contact</Button>
-    </InputForm>
+      </InputStyled>
+      <ButtonStyled type="submit">Add Contact</ButtonStyled>
+    </InputFormStyled>
   );
+};
+
+ContactForm.propTypes = {
+  checkDuplicateContact: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired,
 };

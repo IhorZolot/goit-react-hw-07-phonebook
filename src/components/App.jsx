@@ -1,10 +1,11 @@
-import { ContactForm } from './ContactForm';
-import { ContactList } from './ContactList';
-import { ContactFilter } from './ContactFilter';
-import { Container } from './PhonebookContact.styled';
+import { ContactForm } from './contactForm/ContactForm';
+import { ContactList } from './contactList/ContactList';
+import { ContactFilter } from './contactFilter/ContactFilter';
 import { useDispatch, useSelector } from 'react-redux';
 import { setFilter } from 'redux/contactsSlice';
 import { useEffect } from 'react';
+import { ContainerStyled } from './app.styled';
+
 import {
   addContactsThunk,
   deleteContactsThunk,
@@ -52,7 +53,7 @@ export const App = () => {
   const filteredContacts = getFilteredData();
 
   return (
-    <Container>
+    <ContainerStyled ContainerStyled>
       <h1>Phonebook</h1>
       <ContactForm
         checkDuplicateContact={checkDuplicateContact}
@@ -64,6 +65,6 @@ export const App = () => {
         contacts={filteredContacts}
         onDeleteContact={handleDeleteContact}
       />
-    </Container>
+    </ContainerStyled>
   );
 };
