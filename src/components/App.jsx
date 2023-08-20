@@ -53,7 +53,7 @@ export const App = () => {
   const filteredContacts = getFilteredData();
 
   return (
-    <ContainerStyled ContainerStyled>
+    <ContainerStyled>
       <h1>Phonebook</h1>
       <ContactForm
         checkDuplicateContact={checkDuplicateContact}
