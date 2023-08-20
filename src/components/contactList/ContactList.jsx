@@ -5,9 +5,9 @@ import { ButtonDeleteStyled, ContactNameStyled } from './contactList.styled';
 export const ContactList = ({ contacts, onDeleteContact }) => {
   return (
     <ul>
-      {contacts.map(contact => (
+      {contacts.map((contact, index) => (
         <ContactNameStyled key={contact.id}>
-          {contact.name}: {contact.phone}
+          {index + 1}. {contact.name}: {contact.phone}
           <ButtonDeleteStyled onClick={() => onDeleteContact(contact.id)}>
             Delete
           </ButtonDeleteStyled>

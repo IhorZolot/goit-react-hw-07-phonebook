@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { nanoid } from 'nanoid';
 import {
   ButtonStyled,
   InputEnterStyled,
@@ -28,7 +27,7 @@ export const ContactForm = ({ checkDuplicateContact, onSubmit }) => {
       return;
     }
 
-    onSubmit({ id: nanoid(), name, phone: number });
+    onSubmit({ name, phone: number });
     setName('');
     setNumber('');
   };
